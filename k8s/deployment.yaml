@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-demo
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+    spec:
+      containers:
+        - name: devops-demo
+          image: krsaikrishna/devops-demo:REPLACE_TAG
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
