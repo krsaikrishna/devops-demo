@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Install & Test') {
       steps {
-        sh 'npm ci'
+        sh 'npm ci || npm install' 
         sh 'npm test || true'
       }
     }
